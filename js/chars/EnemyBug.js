@@ -56,7 +56,6 @@ class BehaviorEnemyBug extends Trait {
         if (!them.armor.collided) {
             if (them.armor.getCount() > 0) {
                 them.armor.decrementCount();
-                them.armor.onChangeArmor();
             } else {
                 them.killable.kill();
             }

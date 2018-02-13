@@ -6,6 +6,7 @@ class PlayerController extends Trait {
         this.score = 0;
         this.scoreSelector = document.getElementById('unicorn-score');
         this.armorSelector = document.getElementById('armor-score');
+        this.flySelector = document.getElementById('fly-score');
     }
 
     setPlayer(entity) {
@@ -21,7 +22,10 @@ class PlayerController extends Trait {
         };
         this.player.armor.onChangeArmor = () => {
             this.armorSelector.innerHTML = this.player.armor.getCount();
-        }
+        };
+        this.player.fly.onChangeFlyingSec = () => {
+            this.flySelector.innerHTML = this.player.fly.getSeconds().toFixed(1) + ' s';
+        };
     }
 
     cleanScore() {

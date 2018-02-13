@@ -69,26 +69,31 @@ canvas#screen.fade-in{
 .hint-block {
     position: absolute;
     top: 30px;
-    left: 0;
-    right: 0;
+    right: 375px;
     display: block;
-    text-align: center;
     opacity: 0.4;
 }
 
-.bonus-block {
+.armor-block {
     position: absolute;
     top: 30px;
     right: 170px;
     display: block;
     text-align: center;
 }
+.fly-block {
+    position: absolute;
+    top: 30px;
+    right: 250px;
+    display: block;
+    text-align: center;
+}
 
-.armor-sign {
+.bonus-sign {
     margin: 0;
 }
 
-.armor-num {
+.bonus-num {
     margin: 0;
     font-size: 34px;
 }

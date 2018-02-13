@@ -21,6 +21,8 @@ function createPlayerEnv(playerEntity) {
     playerControl.setPlayer(playerEntity);
     playerControl.cleanScore();
     playerEnv.addTrait(playerControl);
+    playerEntity.fly.onChangeFlyingSec();
+    playerEntity.armor.onChangeArmor();
     return playerEnv;
 }
 
@@ -83,10 +85,24 @@ async function main(canvas, selectedLevel) {
                         unicorn.jump.cancel();
                     }
                 } else {
+                    if (event.code === 'KeyF' && STATE === 'game') {
+                        const keyState = event.type === 'keydown' ? 1 : 0;
+
+                        if (keyState > 0) {
+                            unicorn.fly.start();
+                        } else {
+                            unicorn.fly.cancel();
+                        }
+                    }
                     if (event.type === 'keyup' && event.code === 'KeyP' && (STATE === 'game' || STATE === 'pause')) {
                         STATE = STATE === 'pause' ? 'game' : 'pause';
                         document.getElementById('menu-wrapper').classList[STATE === 'pause' ? 'add' : 'remove']('show');
                         document.getElementById('screen').classList[STATE === 'pause' ? 'add' : 'remove']('fade-in');
+                    }
+                    if (event.type === 'keyup' && event.code === 'Escape' && STATE === 'bonus') {
+                        STATE = 'pause';
+                        document.getElementById('menu-wrapper').classList.add('show');
+                        document.getElementById('buy-bonus-wrapper').classList.remove('show');
                     }
                     unicorn.jump.cancel();
                 }
@@ -125,15 +141,26 @@ async function main(canvas, selectedLevel) {
                     case 'armor': {
                         if (playerEnv.playerController.score >= 200) {
                             unicorn.armor.incrementCount();
-                            unicorn.armor.onChangeArmor();
                             playerEnv.playerController.setScore(playerEnv.playerController.score - 200);
+                        } else {
+                            alert('Недостаточно средств');
+                        }
+                        break;
+                    }
+                    case 'flying': {
+                        if (playerEnv.playerController.score >= 400) {
+                            unicorn.fly.addSeconds(5);
+                            unicorn.fly.onChangeFlyingSec();
+                            playerEnv.playerController.setScore(playerEnv.playerController.score - 400);
+                        } else {
+                            alert('Недостаточно средств');
                         }
                         break;
                     }
                 }
-                STATE = 'game';
+                STATE = 'pause';
+                document.getElementById('menu-wrapper').classList.add('show');
                 document.getElementById('buy-bonus-wrapper').classList.remove('show');
-                document.getElementById('screen').classList.remove('fade-in');
             }
         });
         listenersIsAdded = true;

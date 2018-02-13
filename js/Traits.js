@@ -58,14 +58,16 @@ class Run extends Trait {
 class Armor extends Trait {
     constructor() {
         super('armor');
-        let count = 0;
+        let count = 1;
         const self = this;
         this.collided = false;
         this.incrementCount = function() {
             count++;
+            this.onChangeArmor();
         };
         this.decrementCount = function() {
             count--;
+            this.onChangeArmor();
             this.collided = true;
             setTimeout(() => {
                 self.collided = false;
@@ -127,6 +129,45 @@ class Jump extends Trait {
         }
 
         this.ready--;
+    }
+}
+
+class Fly extends Trait {
+    constructor() {
+        super('fly');
+        this.active = false;
+        this.speedBoost = 0.3;
+        this.velocity = 200;
+        let secs = 2;
+        this.addSeconds = function(s) {
+            secs += s;
+            this.onChangeFlyingSec();
+        };
+        this.getSeconds = function() {
+            return secs;
+        }
+    }
+
+    start() {
+        this.active = true;
+    }
+    cancel() {
+        this.active = false;
+    }
+
+    update(entity, deltaTime) {
+        if (this.active) {
+            if (this.getSeconds() > 0) {
+                if (entity.pos.y > 50) {
+                    entity.vel.y = -(this.velocity + Math.abs(entity.vel.x) * this.speedBoost);
+                } else {
+                    entity.pos.y = 50;
+                }
+                this.addSeconds(-deltaTime);
+            } else {
+                this.addSeconds(-this.getSeconds());
+            }
+        }
     }
 }
 
