@@ -5,10 +5,12 @@ class PlayerController extends Trait {
         this.player = null;
         this.score = 0;
         this.scoreSelector = document.getElementById('unicorn-score');
+        this.armorSelector = document.getElementById('armor-score');
     }
 
     setPlayer(entity) {
         this.player = entity;
+        this.armorSelector.innerHTML = this.player.armor.getCount();
 
         this.player.picker.onPick = () => {
             this.score += 50;
@@ -16,11 +18,22 @@ class PlayerController extends Trait {
             setTimeout(() => {
                 this.scoreSelector.innerHTML = this.score;
             }, 0);
+        };
+        this.player.armor.onChangeArmor = () => {
+            this.armorSelector.innerHTML = this.player.armor.getCount();
         }
     }
 
     cleanScore() {
         this.score = 0;
+
+        setTimeout(() => {
+            this.scoreSelector.innerHTML = this.score;
+        }, 0);
+    }
+
+    setScore(score) {
+        this.score = score;
 
         setTimeout(() => {
             this.scoreSelector.innerHTML = this.score;

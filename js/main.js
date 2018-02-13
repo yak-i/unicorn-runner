@@ -35,7 +35,7 @@ let timer = null;
 
 let listenersIsAdded = false;
 
-let STATE = 'start'; // start, game, pause, completed, levelSelecting
+let STATE = 'start'; // start, game, pause, completed, levelSelecting, bonus
 
 let levelSelectInnerHTML = '';
 Object.keys(LEVELS).forEach((level) => {
@@ -108,7 +108,32 @@ async function main(canvas, selectedLevel) {
                         document.getElementById('menu-wrapper').classList.remove('show');
                         break;
                     }
+                    case 'bonus': {
+                        STATE = 'bonus';
+                        document.getElementById('buy-bonus-wrapper').classList.add('show');
+                        document.getElementById('menu-wrapper').classList.remove('show');
+                        break;
+                    }
                 }
+            }
+        });
+        document.getElementById('bonus-menu').addEventListener('click', function (ev) {
+            const bonusItem = findAncestor(ev.target, 'bonus-menu-item');
+            if (bonusItem) {
+                const bonusType = bonusItem.getAttribute('data-type');
+                switch (bonusType) {
+                    case 'armor': {
+                        if (playerEnv.playerController.score >= 200) {
+                            unicorn.armor.incrementCount();
+                            unicorn.armor.onChangeArmor();
+                            playerEnv.playerController.setScore(playerEnv.playerController.score - 200);
+                        }
+                        break;
+                    }
+                }
+                STATE = 'game';
+                document.getElementById('buy-bonus-wrapper').classList.remove('show');
+                document.getElementById('screen').classList.remove('fade-in');
             }
         });
         listenersIsAdded = true;

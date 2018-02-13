@@ -130,6 +130,7 @@ function createUnicornFactory(sprite) {
         unicorn.addTrait(new Solid());
         unicorn.addTrait(new Run());
         unicorn.addTrait(new Jump());
+        unicorn.addTrait(new Armor());
         unicorn.addTrait(new Picker());
         unicorn.addTrait(new Killable());
 

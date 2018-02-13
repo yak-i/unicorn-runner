@@ -55,6 +55,28 @@ class Run extends Trait {
     }
 }
 
+class Armor extends Trait {
+    constructor() {
+        super('armor');
+        let count = 0;
+        const self = this;
+        this.collided = false;
+        this.incrementCount = function() {
+            count++;
+        };
+        this.decrementCount = function() {
+            count--;
+            this.collided = true;
+            setTimeout(() => {
+                self.collided = false;
+            }, 3 * 1000)
+        };
+        this.getCount = function() {
+            return count;
+        }
+    }
+}
+
 class Jump extends Trait {
     constructor() {
         super('jump');

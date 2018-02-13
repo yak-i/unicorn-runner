@@ -76,6 +76,23 @@ canvas#screen.fade-in{
     opacity: 0.4;
 }
 
+.bonus-block {
+    position: absolute;
+    top: 30px;
+    right: 170px;
+    display: block;
+    text-align: center;
+}
+
+.armor-sign {
+    margin: 0;
+}
+
+.armor-num {
+    margin: 0;
+    font-size: 34px;
+}
+
 .score-block {
     position: absolute;
     top: 30px;
@@ -280,4 +297,40 @@ canvas#screen.fade-in{
 }
 .level-completed-actions .fa.fa-play {
     left: 15px;
+}
+
+.buy-bonus-wrapper {
+    display: none;
+    position: absolute;
+    top: 250px;
+    left: 350px;
+    background: #f8f8f8;
+    border: 1px solid #929598;
+}
+
+.buy-bonus-wrapper.show {
+    display: block;
+}
+
+.bonus-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bonus-menu-item {
+    display: block;
+    position: relative;
+    height: 40px;
+    padding: 0 15px;
+    background-color: #c9cbce;
+    list-style: none;
+    line-height: 45px;
+    font-size: 14px;
+    color: #808080;
+    cursor: pointer;
+}
+.bonus-menu-item:hover {
+    background-color: #94999e;
+    color: #fff;
 }

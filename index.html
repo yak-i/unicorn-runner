@@ -18,19 +18,32 @@
             <p>Нажмите P для паузы</p>
         </div>
         <div class="score-block">
-            <p class="score-sign">score</p>
+            <p class="score-sign">Счет</p>
             <p class="score-num" id="unicorn-score">0</p>
+        </div>
+        <div class="bonus-block">
+            <p class="armor-sign">Броня</p>
+            <p class="armor-num" id="armor-score">0</p>
         </div>
         <div class="menu-wrapper" id="menu-wrapper">
             <ul class="menu" id="menu">
                 <li class="menu-item" data-action="continue">Продолжить</li>
                 <li class="menu-item" data-action="changeLocation">Сменить локацию</li>
+                <li class="menu-item" data-action="bonus">Активировать бонусы</li>
             </ul>
         </div>
         <div class="level-select-wrapper show" id="level-select-wrapper">
             <ul class="cards" id="level-select"></ul>
         </div>
-        <div class="level-completed-wrapper" id="level-completed-wrapper" />
+        <div class="level-completed-wrapper" id="level-completed-wrapper"></div>
+        <div class="buy-bonus-wrapper" id="buy-bonus-wrapper">
+            <ul class="bonus-menu" id="bonus-menu">
+                <li class="bonus-menu-item" data-type="armor">
+                    <span>Броня</span>
+                    <button>200</button>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="js/constants.js"></script>
     <script src="js/Timer.js"></script>
