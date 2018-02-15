@@ -10,12 +10,14 @@ function loadChars() {
         loadUnicorn().then(addFactory('unicorn')),
         loadEnemyBug().then(addFactory('enemyBug')),
         loadRainbow().then(addFactory('rainbow')),
+        loadRocket().then(addFactory('rocket')),
+        loadArmor().then(addFactory('armor')),
     ])
     .then(() => entityFactories);
 }
 
 function createPlayerEnv(playerEntity) {
-    const playerEnv = new Entity();
+    const playerEnv = new Entity('playerEnv');
     const playerControl = new PlayerController();
     playerControl.checkpoint.set(64, 64);
     playerControl.setPlayer(playerEntity);

@@ -122,7 +122,7 @@ function createUnicornFactory(sprite) {
     }
 
     return function createUnicorn() {
-        const unicorn = new Entity();
+        const unicorn = new Entity('unicorn');
         unicorn.size.set(120, 119);
         unicorn.offset.x = 20;
 

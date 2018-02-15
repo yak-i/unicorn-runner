@@ -76,7 +76,7 @@ function createRainbowFactory(sprite) {
     }
 
     return function createRainbow() {
-        const rainbow = new Entity();
+        const rainbow = new Entity('rainbow');
         rainbow.size.set(83, 93);
 
         rainbow.addTrait(new Physics());

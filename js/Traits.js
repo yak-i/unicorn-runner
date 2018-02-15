@@ -61,8 +61,12 @@ class Armor extends Trait {
         let count = 1;
         const self = this;
         this.collided = false;
-        this.incrementCount = function() {
-            count++;
+        this.incrementCount = function(c) {
+            if (c) {
+                count += c;
+            } else {
+                count++;
+            }
             this.onChangeArmor();
         };
         this.decrementCount = function() {
@@ -236,6 +240,20 @@ class Picker extends Trait {
             return;
         }
 
-        this.onPick(us, them);
+        switch (them.name) {
+            case 'rainbow': {
+                this.onPick(us, them);
+                break;
+            }
+            case 'rocket': {
+                us.fly.addSeconds(2.5);
+                break;
+            }
+            case 'armor': {
+                us.armor.incrementCount(0.5);
+                break;
+            }
+        }
+
     }
 }

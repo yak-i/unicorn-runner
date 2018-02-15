@@ -10,8 +10,12 @@ const LEVELS = {
                                 3, 4
                             ],
                             [
-                                1, 19, // offset, length длина
-                                6, 1   // offset, length высота(толщина)
+                                17, 1,
+                                3, 1
+                            ],
+                            [
+                                1, 19,
+                                6, 1
                             ],
                             [
                                 24, 10,
@@ -42,8 +46,12 @@ const LEVELS = {
                                 5, 1
                             ],
                             [
-                                87, 2,
+                                87, 3,
                                 8, 1
+                            ],
+                            [
+                                89, 1,
+                                4, 1
                             ],
                             [
                                 93, 4,
@@ -104,6 +112,10 @@ const LEVELS = {
                 pos: [780, 0]
             },
             {
+                name: "rocket",
+                pos: [1030, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [1608, 0]
             },
@@ -132,8 +144,16 @@ const LEVELS = {
                 pos: [4620, 0]
             },
             {
+                name: "armor",
+                pos: [5230, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [5588, 0]
+            },
+            {
+                name: "enemyBug",
+                pos: [6170, 0]
             },
             {
                 name: "rainbow",
@@ -162,8 +182,12 @@ const LEVELS = {
                                 3, 4
                             ],
                             [
-                                1, 19, // offset, length длина
-                                6, 1   // offset, length высота(толщина)
+                                17, 1,
+                                3, 1
+                            ],
+                            [
+                                1, 19,
+                                6, 1
                             ],
                             [
                                 24, 10,
@@ -194,8 +218,12 @@ const LEVELS = {
                                 5, 1
                             ],
                             [
-                                87, 2,
+                                87, 3,
                                 8, 1
+                            ],
+                            [
+                                89, 1,
+                                4, 1
                             ],
                             [
                                 93, 4,
@@ -256,6 +284,10 @@ const LEVELS = {
                 pos: [780, 0]
             },
             {
+                name: "rocket",
+                pos: [1030, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [1608, 0]
             },
@@ -284,8 +316,16 @@ const LEVELS = {
                 pos: [4620, 0]
             },
             {
+                name: "armor",
+                pos: [5230, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [5588, 0]
+            },
+            {
+                name: "enemyBug",
+                pos: [6170, 0]
             },
             {
                 name: "rainbow",
@@ -314,8 +354,12 @@ const LEVELS = {
                                 3, 4
                             ],
                             [
-                                1, 19, // offset, length длина
-                                6, 1   // offset, length высота(толщина)
+                                17, 1,
+                                3, 1
+                            ],
+                            [
+                                1, 19,
+                                6, 1
                             ],
                             [
                                 24, 10,
@@ -346,8 +390,12 @@ const LEVELS = {
                                 5, 1
                             ],
                             [
-                                87, 2,
+                                87, 3,
                                 8, 1
+                            ],
+                            [
+                                89, 1,
+                                4, 1
                             ],
                             [
                                 93, 4,
@@ -408,6 +456,10 @@ const LEVELS = {
                 pos: [780, 0]
             },
             {
+                name: "rocket",
+                pos: [1030, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [1608, 0]
             },
@@ -436,8 +488,16 @@ const LEVELS = {
                 pos: [4620, 0]
             },
             {
+                name: "armor",
+                pos: [5230, 0]
+            },
+            {
                 name: "rainbow",
                 pos: [5588, 0]
+            },
+            {
+                name: "enemyBug",
+                pos: [6170, 0]
             },
             {
                 name: "rainbow",

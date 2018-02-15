@@ -76,7 +76,7 @@ function createEnemyBugFactory(sprite) {
     }
 
     return function createEnemyBug() {
-        const enemyBug = new Entity();
+        const enemyBug = new Entity('enemyBug');
         enemyBug.size.set(58, 45);
         enemyBug.offset.y = 20;
 
