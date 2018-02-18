@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unicorn Runner!</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="css/styles.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-wrapper">
+        <canvas id="screen" width="840" height="660"></canvas>
+        <h2 class="fintech-header">
+            Тинькофф<br>
+            Финтех
+        </h2>
+        <div class="hint-block">
+            <p>Нажмите P для паузы</p>
+            <p>Нажмите F для полета</p>
+        </div>
+        <div class="score-block">
+            <p class="score-sign">Счет</p>
+            <p class="score-num" id="unicorn-score">0</p>
+        </div>
+        <div class="armor-block">
+            <p class="bonus-sign">Броня</p>
+            <p class="bonus-num" id="armor-score">0</p>
+        </div>
+        <div class="fly-block">
+            <p class="bonus-sign">Полет</p>
+            <p class="bonus-num" id="fly-score">0</p>
+        </div>
+        <div class="menu-wrapper" id="menu-wrapper">
+            <ul class="menu" id="menu">
+                <li class="menu-item" data-action="continue">Продолжить</li>
+                <li class="menu-item" data-action="changeLocation">Сменить локацию</li>
+                <li class="menu-item" data-action="bonus">Активировать бонусы</li>
+            </ul>
+        </div>
+        <div class="level-select-wrapper show" id="level-select-wrapper">
+            <ul class="cards" id="level-select"></ul>
+        </div>
+        <div class="level-completed-wrapper" id="level-completed-wrapper"></div>
+        <div class="buy-bonus-wrapper" id="buy-bonus-wrapper">
+            <ul class="bonus-menu" id="bonus-menu">
+                <li class="bonus-menu-item" data-type="armor">
+                    <span>Броня</span>
+                    <button>200</button>
+                </li>
+                <li class="bonus-menu-item" data-type="flying">
+                    <span>Полет 5 секунд</span>
+                    <button>400</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="polyfill.min.js"></script>
+    <script src="js/build.js"></script>
+</body>
+</html>
