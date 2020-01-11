@@ -11,12 +11,12 @@ var gulp = require('gulp'),
 
 // Fonts
 gulp.task('fonts', function() {
-  return gulp.src(['fonts/*']).pipe(gulp.dest('dist/fonts/'));
+  return gulp.src(['src/fonts/*']).pipe(gulp.dest('dist/fonts/'));
 });
 
 gulp.task('styles', function() {
   return gulp
-    .src(['css/*.css'])
+    .src(['src/css/*.css'])
     .pipe(concat('styles.min.css'))
     .pipe(
       minifyCSS({
@@ -28,7 +28,7 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   var js = gulp
-    .src(['js/**/*.js'])
+    .src(['src/js/**/*.js'])
     .pipe(babel())
     .pipe(uglify())
     .pipe(concat('build.js'))
@@ -43,7 +43,7 @@ gulp.task('scripts', function() {
 
 gulp.task('images', function() {
   return gulp
-    .src(['img/*'])
+    .src(['src/img/*'])
     .pipe(
       cache(
         imagemin({
